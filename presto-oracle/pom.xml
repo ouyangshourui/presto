@@ -3,16 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+
 	<parent>
 		<groupId>com.facebook.presto</groupId>
 		<artifactId>presto-root</artifactId>
 		<version>0.215-SNAPSHOT</version>
 	</parent>
 
-	<groupId>com.facebook.presto</groupId>
-	<artifactId>presto-teradata</artifactId>
-	<description>Presto - Teradata Connector</description>
+	<artifactId>presto-oracle</artifactId>
+	<description>Presto - Oracle Connector</description>
 	<packaging>presto-plugin</packaging>
+
 
 	<properties>
 		<air.main.basedir>${project.parent.basedir}</air.main.basedir>
@@ -23,6 +24,7 @@
 			<groupId>com.facebook.presto</groupId>
 			<artifactId>presto-base-jdbc</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>io.airlift</groupId>
@@ -45,12 +47,12 @@
 			<artifactId>guice</artifactId>
 		</dependency>
 
-
+		<!-- Additional dependencies to use bootstrap and inject -->
 		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
-			<optional>true</optional>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
 		</dependency>
+
 
 		<!-- Presto SPI -->
 		<dependency>
@@ -79,5 +81,18 @@
 			<scope>provided</scope>
 		</dependency>
 
+
+		<!-- for testing -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.facebook.presto</groupId>
+			<artifactId>presto-main</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!--<dependency>-->
 	</dependencies>
 </project>
